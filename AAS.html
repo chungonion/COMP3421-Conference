@@ -1,0 +1,88 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="sty.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+        function run() {
+            $.ajax({
+                url: 'server.php',
+                data: {
+                    action: 'get_speakers_list_information'
+                },
+                type: 'post',
+                success: function(data) {
+                    if (data) {
+                        var json = JSON.parse(data);
+                        var tr;
+                        for (var i = 0; i < json.length; i++) {
+                            tr = $('<tr/>');
+                            tr.append("<td>" + json[i]["speaker lastname"]+ "</td>");
+                            tr.append("<td>" + json[i]["speaker firstname"]+ "</td>");
+                            $('#table').append(tr);
+
+                        }
+                    }
+                }
+            })
+            $.ajax({
+               url: 'server.php',
+               data: {
+                   action: 'get_authorsabstracts_information'
+               },
+               type: 'post',
+               success: function(data) {
+                   if (data) {
+                       var json = JSON.parse(data);
+                       var tr;
+                       for (var i = 0; i < json.length; i++) {
+                           tr = $('<tr/>');
+                           tr.append("<td>" + json[i]["lastname"]+ "</td>");
+                           tr.append("<td>" + json[i]["firstname"]+ "</td>");
+                           $('#table').append(tr);
+                       }
+                   }
+               }
+           })
+           $.ajax({
+              url: 'server.php',
+              data: {
+                  action: 'get_sponsorship_information'
+              },
+              type: 'post',
+              success: function(data) {
+                  if (data) {
+                      var json = JSON.parse(data);
+                      var tr;
+                      for (var i = 0; i < json.length; i++) {
+                          tr = $('<tr/>');
+                          tr.append("<td>" + json[i]["sponsorID"]+ "</td>");
+                          tr.append("<td>" + json[i]["sponsor name"]+ "</td>");
+                          tr.append("<td>" + json[i]["type"]+ "</td>");
+                          tr.append("<td>" + json[i]["logo image filename"]+ "</td>");
+                          $('#table2').append(tr);
+                      }
+                  }
+              }
+          })
+        }
+        run();
+    </script>
+</head>
+<body>
+    <h2>Acknowledgements and Sponsorships </h2>
+    <h3>Thanks all of the person who have contributed to the conference.</h3>
+    <table id="table" border="1">
+      <tr>
+          <td>Contributor lastname</td>
+          <td>Contributor firstname</td>
+    </table><br>
+    <table id="table2" border="1">
+      <tr>
+          <td>Sponsor ID</td>
+          <td>Sponsor Name</td>
+          <td>Type</td>
+          <td>Logo image filename</td>
+      </tr>
+    </table>
+</body>
+</html>
