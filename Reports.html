@@ -1,0 +1,223 @@
+<html>
+    <head>
+        <h2>Reports</h2>
+        <link rel="stylesheet" type="text/css" href="sty.css" />
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+       <script type="text/javascript">
+
+         // Load the Visualization API and the piechart package.
+         google.load('visualization', '1.0', {'packages':['corechart']});
+
+         // Set a callback to run when the Google Visualization API is loaded.
+         google.setOnLoadCallback(drawChart);
+
+         // Callback that creates and populates a data table,
+         // instantiates the pie chart, passes in the data and
+         // draws it.
+         function drawChart() {
+
+           // Create the data table.
+           var data = new google.visualization.DataTable();
+           data.addColumn('string', 'Topping');
+           data.addColumn('number', 'Slices');
+           data.addRows([
+             ['Yes', 3],
+             ['No', 2]
+           ]);
+           // Create the data table.
+           var data2 = new google.visualization.DataTable();
+           data2.addColumn('string', 'Topping');
+           data2.addColumn('number', 'Slices');
+           data2.addRows([
+             ['Ad in [Print Material]', 3],
+             ['Conference Website', 1],
+             ['Referral', 15],
+             ['Email/Newsletter', 1],
+             ['Social Media', 2]
+           ]);
+
+           var data3 = new google.visualization.DataTable();
+           data3.addColumn('string', 'Topping');
+           data3.addColumn('number', 'Slices');
+           data3.addRows([
+             ['Content', 3],
+             ['Networking', 1],
+             ['Personal growth and development', 15],
+             ['Speakers', 1],
+             ['Other', 2]
+           ]);
+
+           var data4 = new google.visualization.DataTable();
+           data4.addColumn('string', 'Topping');
+           data4.addColumn('number', 'Slices');
+           data4.addRows([
+             ['Yes - Absolutely', 3],
+             ['Yes - But not to my full extent', 1],
+             ['No', 2]
+           ]);
+
+           var data5 = new google.visualization.DataTable();
+           data5.addColumn('string', 'Topping');
+           data5.addColumn('number', 'Slices');
+           data5.addRows([
+             ['Yes', 3],
+             ['Maybe', 2]
+           ]);
+
+           var data6 = new google.visualization.DataTable();
+           data6.addColumn('string', 'Topping');
+           data6.addColumn('number', 'Slices');
+           data6.addRows([
+             ['Missing', 3]
+           ]);
+
+           var data7 = new google.visualization.DataTable();
+           data7.addColumn('string', 'Topping');
+           data7.addColumn('number', 'Slices');
+           data7.addRows([
+             ['Very Satisfied', 3],
+             ['Somewhat Satisfied', 1],
+             ['Neutral', 15],
+             ['Somewhat Dissatisfied', 1],
+             ['Very Dissatisfied', 2]
+           ]);
+
+           var data8 = new google.visualization.DataTable();
+           data8.addColumn('string', 'Topping');
+           data8.addColumn('number', 'Slices');
+           data8.addRows([
+             ['Very Satisfied', 3],
+             ['Somewhat Satisfied', 1],
+             ['Neutral', 15],
+             ['Somewhat Dissatisfied', 1],
+             ['Very Dissatisfied', 2]
+           ]);
+
+           var data9 = new google.visualization.DataTable();
+           data9.addColumn('string', 'Topping');
+           data9.addColumn('number', 'Slices');
+           data9.addRows([
+             ['Very Satisfied', 3],
+             ['Somewhat Satisfied', 1],
+             ['Neutral', 15],
+             ['Somewhat Dissatisfied', 1],
+             ['Very Dissatisfied', 2]
+           ]);
+
+           var data10 = new google.visualization.DataTable();
+           data10.addColumn('string', 'Topping');
+           data10.addColumn('number', 'Slices');
+           data10.addRows([
+             ['Very Satisfied', 3],
+             ['Somewhat Satisfied', 1],
+             ['Neutral', 15],
+             ['Somewhat Dissatisfied', 1],
+             ['Very Dissatisfied', 2]
+           ]);
+
+           var data11 = new google.visualization.DataTable();
+           data11.addColumn('string', 'Topping');
+           data11.addColumn('number', 'Slices');
+           data11.addRows([
+             ['Very Satisfied', 3],
+             ['Somewhat Satisfied', 1],
+             ['Neutral', 15],
+             ['Somewhat Dissatisfied', 1],
+             ['Very Dissatisfied', 2]
+           ]);
+
+           var data12 = new google.visualization.DataTable();
+           data12.addColumn('string', 'Topping');
+           data12.addColumn('number', 'Slices');
+           data12.addRows([
+             ['Very Satisfied', 3],
+             ['Somewhat Satisfied', 1],
+             ['Neutral', 15],
+             ['Somewhat Dissatisfied', 1],
+             ['Very Dissatisfied', 2]
+           ]);
+
+           // Set chart options
+           var options = {'title':'1. Have you ever attended our conference before?',
+                          'width':400,
+                          'height':300};
+           // Set chart options
+           var options2 = {'title':'2. How did you hear or learn about this conference?',
+                          'width':400,
+                          'height':300};
+           // Set chart options
+           var options3 = {'title':'3. Please specify the main reason for attending this conference.',
+                          'width':400,
+                          'height':300};
+
+            var options4 = {'title':'4.	Did the conference fulfill your reason for attending?',
+            'width':400,
+            'height':300};
+            var options5 = {'title':'5.	Would you recommend this conference to others?',
+            'width':400,
+            'height':300};
+            var options6 = {'title':'6.	Missing Question',
+            'width':400,
+            'height':300};
+            var options7 = {'title':'101. Please rate the overall quality of the conference contents.',
+            'width':400,
+            'height':300};
+            var options8 = {'title':'102. Have you been able to interact with other conference participants?',
+            'width':400,
+            'height':300};
+            var options9 = {'title':'103. Please rate the efficiency of the registration process.',
+            'width':400,
+            'height':300};
+            var options10 = {'title':'104. Do you consider the venue of the conference siutable?',
+            'width':400,
+            'height':300};
+            var options11 = {'title':'105. How would you find the beverages and food provided in the conference?',
+            'width':400,
+            'height':300};
+            var options12 = {'title':'106.	Would you consider to join this conference again next year?',
+            'width':400,
+            'height':300};
+
+           // Instantiate and draw our chart, passing in some options.
+           var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+           chart.draw(data, options);
+           var chart2 = new google.visualization.PieChart(document.getElementById('chart_div2'));
+           chart2.draw(data2, options2);
+           var chart3 = new google.visualization.PieChart(document.getElementById('chart_div3'));
+           chart3.draw(data3, options3);
+           var chart4 = new google.visualization.PieChart(document.getElementById('chart_div4'));
+           chart4.draw(data4, options4);
+           var chart5 = new google.visualization.PieChart(document.getElementById('chart_div5'));
+           chart5.draw(data5, options5);
+           var chart6 = new google.visualization.PieChart(document.getElementById('chart_div6'));
+           chart6.draw(data6, options6);
+           var chart7 = new google.visualization.PieChart(document.getElementById('chart_div7'));
+           chart7.draw(data7, options7);
+           var chart8 = new google.visualization.PieChart(document.getElementById('chart_div8'));
+           chart8.draw(data8, options8);
+           var chart9 = new google.visualization.PieChart(document.getElementById('chart_div9'));
+           chart9.draw(data9, options9);
+           var chart10 = new google.visualization.PieChart(document.getElementById('chart_div10'));
+           chart10.draw(data10, options10);
+           var chart11 = new google.visualization.PieChart(document.getElementById('chart_div11'));
+           chart11.draw(data11, options11);
+           var chart12 = new google.visualization.PieChart(document.getElementById('chart_div12'));
+           chart12.draw(data12, options12);
+         }
+       </script>
+    </head>
+    <body>
+        <div id="chart_div"></div>
+        <div id="chart_div2"></div>
+        <div id="chart_div3"></div>
+        <div id="chart_div4"></div>
+        <div id="chart_div5"></div>
+        <div id="chart_div6"></div>
+        <div id="chart_div7"></div>
+        <div id="chart_div8"></div>
+        <div id="chart_div9"></div>
+        <div id="chart_div10"></div>
+        <div id="chart_div11"></div>
+        <div id="chart_div12"></div>
+    </body>
+</html>

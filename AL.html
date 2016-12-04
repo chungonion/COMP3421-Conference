@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="sty.css" />
+        <script src="jquery.min.js"></script>
+        <script>
+            function run() {
+                $.ajax({
+                    url: 'server.php',
+                    data: {
+                        action: 'get_presentation_information'
+                    },
+                    type: 'post',
+                    success: function(data) {
+                        if (data) {
+                            var json = JSON.parse(data);
+                            var tr;
+                            for (var i = 0; i < json.length; i++) {
+                                tr = $('<tr/>');
+                                tr.append('<td>' + json[i]['title'] + '</td>');
+                                tr.append('<td>' + json[i]['speakerLastname'] +' '+json[i]['speakerFirstname'] + '</td>');
+                                tr.append('<td>' + json[i]['begtime']+ ' to ' + json[i]['endtime'] + '</td>');
+                                tr.append('<td>' + json[i]['abstract']+ '</td>');
+                                $('table').append(tr);
+                            }
+                        }
+                    }
+                })
+            }
+            run();
+        </script>
+    </head>
+    <body>
+        <h2>Abstract List</h2>
+        <table border="1">
+            <tr>
+                <td>Title</td>
+                <td>Speaker</td>
+                <td>Presentation Time</td>
+                <td>Contents</td>
+            </tr>
+        </table>
+    </body>
+</html>

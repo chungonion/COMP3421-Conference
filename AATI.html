@@ -1,0 +1,82 @@
+<html>
+
+<head>
+    <style>
+        #map-canvas {
+            width: 600;
+            height: 400;
+            margin: 0px;
+            padding: 0px;
+            position: absolute;
+            left: 0;
+            top: 400;
+            margin-left: auto;
+            margin-right: auto;
+            z-index: 1;
+            "
+
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="sty.css" />
+    <script src="jquery.min.js"></script>
+    <script>
+        function run() {
+            $.ajax({
+                url: 'server.php',
+                data: {
+                    action: 'get_tourist_information'
+                },
+                type: 'post',
+                success: function(data) {
+                    if (data) {
+                        var json = JSON.parse(data);
+                        var tr;
+                        for (var i = 0; i < json.length; i++) {
+                            tr = $('<tr/>');
+                            tr.append("<td>" + json[i]["title"] + "</td>");
+                            tr.append("<td>" + "<img src=" + json[i]["photo"] + ">" + "</td>");
+                            tr.append("<td>" + json[i]["description"] + "</td>");
+                            tr.append("<td><a href='" + json[i]["URL"] + "'>" + json[i]["URL"] + "</a></td>");
+                            $('table').append(tr);
+                        }
+                    }
+                }
+            })
+        }
+        run();
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCsifp-tZ-B8BWYu1Akmlgn-8yfPcuf4nU">
+    </script>
+    <script>
+        var map;
+
+        function initialize() {
+            var mapOptions = {
+                zoom: 11,
+                center: new google.maps.LatLng(22.31, 114.18)
+            };
+            map = new google.maps.Map(document.getElementById('map-canvas'),
+                mapOptions);
+        }
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+</head>
+
+<body>
+    <h2>Attraction and Transportation Information</h2>
+    <table border="1">
+        <tr>
+            <td>Title</td>
+            <td>Photo</td>
+            <td>Description</td>
+            <td>URL</td>
+        </tr>
+    </table>
+    <h4>
+            How HK airport goes to the conference venue
+        </h4>
+    <div id="map-canvas"></div>
+</body>
+
+</html>
