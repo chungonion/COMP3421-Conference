@@ -1,0 +1,34 @@
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <script src="jquery.min.js"></script>
+    <script>
+        function run() {
+            $.ajax({
+                url: 'server.php',
+                data: {
+                    action: 'search',
+                    query: 'Zhu'
+                },
+                type: 'post',
+                success: function(data) {
+                    if (data) {
+                        var json = JSON.parse(data);
+                        //alert(json[0]["type"]);
+                    }
+                }
+            })
+        }
+        run();
+
+    </script>
+
+</body>
+
+
+
+</html>

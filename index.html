@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="sty.css" />
+
+    <script src="jquery.min.js"></script>
+
+</head>
+
+<body>
+
+    <div id="header">
+        Web-based Application for Supporting Conference
+    </div>
+
+
+    <div id="menu">
+        <table>
+            <tr>
+                <td valign="top">
+                    <ul class="sidemenu">
+                        <a href="home.html" target="iframe01">
+                            <li>Home</li>
+                        </a>
+                        <a href="CP.html" target="iframe01">
+                            <li>Conference Programme</li>
+                        </a>
+                        <a href="AATI.html" target="iframe01">
+                            <li>Attraction and transportation information</li>
+                        </a>
+                        <a href="SL.html" target="iframe01">
+                            <li>Speakers list</li>
+                        </a>
+                        <a href="AL.html" target="iframe01">
+                            <li>Abstract list</li>
+                        </a>
+                        <!-- <a href="GS.html" target="iframe01">
+                            <li>General Search</li>
+                        </a> -->
+                        <a href="Survey.html" target="iframe01">
+                            <li>Survey</li>
+                        </a>
+                        <a href="Reports.html" target="iframe01">
+                            <li>Reports</li>
+                        </a>
+                        <a href="AP.html" target="iframe01">
+                            <li>About Page</li>
+                        </a>
+                        <a href="AAS.html" target="iframe01">
+                            <li>Acknowledgements and sponsorship</li>
+                        </a>
+                        <a href="LOVITCA.html" target="iframe01">
+                            <li>Locations of venues inside the conference area</li>
+                        </a>
+                        <li>
+                            <input type="text" id="search" name="search" placeholder="Keyword" size="19" />
+                            <button type="button" id="search_button" name="searchweb">Search</button>
+                        </li>
+                    </ul>
+                </td>
+                <td colspan="2">
+                    <iframe name="iframe01" id="iframe01"src="home.html"></iframe>
+                </td>
+                <td>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        var search_button;
+        var search_text;
+        search_button = document.getElementById("search_button");
+        search_button.addEventListener('click', clickHandler, false);
+
+        function clickHandler(e) {
+            if (e.srcElement == search_button) {
+                search_text = document.getElementById("search").value;
+                window.localStorage.setItem("query_text", search_text);
+                document.getElementById("iframe01").setAttribute("src","GS.html");
+                //alert("OK"); //for testing purpose only
+            }
+        }
+    </script>
+
+    <footer>
+        COMP3421 Term Project Fall 2016<br/> Credit by 16042777D, 16042809D, 16089153D, 16089176D
+    </footer>
+
+</body>
+
+</html>

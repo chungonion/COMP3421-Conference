@@ -1,0 +1,244 @@
+<html>
+    <head>
+        <script src ="jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="sty.css" />
+    </head>
+    <body>
+        <h2>Online Survey</h2>
+        <form action="result.php" method="get">
+            <table>
+                <tr>
+                    <td colspan="2">
+                        Please Enter Your Email:
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type = "text" name="email" size="35"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <b>Preset Questions:</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top">
+                        1.
+                    </td>
+                    <td>
+                        Have you ever attended our conference before?(If yes, please specify which year)<br/><br/>
+                        <input type = "radio" name="Q1" value="A"/> A. Yes, Year: <input type="text" name="year" size="5"/><br/>
+                        <input type = "radio" name="Q1" value="B"/> B. No<br/><br/>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top">
+                        2.
+                    </td>
+                    <td>
+                        How did you hear or learn about this conference?<br/><br/>
+                        <input type = "radio" name="Q2" value="A"/> A. Ad in [Print Material]<br/>
+                        <input type = "radio" name="Q2" value="B"/> B. Conference Website<br/>
+                        <input type = "radio" name="Q2" value="C"/> C. Referral<br/>
+                        <input type = "radio" name="Q2" value="D"/> D. Email/Newsletter<br/>
+                        <input type = "radio" name="Q2" value="E"/> E. Social Media<br/><br/>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top">
+                        3.
+                    </td>
+                    <td>
+                        Please specify the main reason for attending this conference?<br/><br/>
+                        <input type = "radio" name="Q3" value="A"/> A. Content<br/>
+                        <input type = "radio" name="Q3" value="B"/> B. Networking<br/>
+                        <input type = "radio" name="Q3" value="C"/> C. Personal growth and developmen<br/>
+                        <input type = "radio" name="Q3" value="D"/> D. Speakers<br/>
+                        <input type = "radio" name="Q3" value="E"/> E. Other: <input type="text" name="other"/><br/><br/>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top">
+                        4.
+                    </td>
+                    <td>
+                        Did the conference fulfill your reason for attending?<br/><br/>
+                        <input type = "radio" name="Q4" value="A"/> A. Yes - Absolutely<br/>
+                        <input type = "radio" name="Q4" value="B"/> B. Yes - But not to my full extent<br/>
+                        <input type = "radio" name="Q4" value="C"/> C. No<br/><br/>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top">
+                        5.
+                    </td>
+                    <td>
+                        Would you recommend this conference to others?<br/><br/>
+                        <input type = "radio" name="Q5" value="A"/> A. Yes<br/>
+                        <input type = "radio" name="Q5" value="B"/> B. Maybe<br/><br/>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top">
+                        Q6.
+                    </td>
+                    <td>
+                        Missing Question<br/><br/>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <b>Multiple Choice Questions:</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top">
+                        101.
+                    </td>
+                    <td>
+                        Please rate the overall quality of the conference contents.<br/><br/>
+                        <input type = "radio" name="Q101" value="vs"/> Very Satisified<br/>
+                        <input type = "radio" name="Q101" value="ss"/> Somewhat Satisified<br/>
+                        <input type = "radio" name="Q101" value="n"/> Neutral<br/>
+                        <input type = "radio" name="Q101" value="sd"/> Somewhat Dissatisfied<br/>
+                        <input type = "radio" name="Q101" value="vd"/> Very Dissatifiied<br/><br/>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top">
+                        102.
+                    </td>
+                    <td>
+                        Have you been able to interact with other conference participants?<br/><br/>
+                        <input type = "radio" name="Q102" value="vs"/> Very Satisified<br/>
+                        <input type = "radio" name="Q102" value="ss"/> Somewhat Satisified<br/>
+                        <input type = "radio" name="Q102" value="n"/> Neutral<br/>
+                        <input type = "radio" name="Q102" value="sd"/> Somewhat Dissatisfied<br/>
+                        <input type = "radio" name="Q102" value="vd"/> Very Dissatifiied<br/><br/>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top">
+                        103.
+                    </td>
+                    <td>
+                        Please rate the efficiency of the registration process.<br/><br/>
+                        <input type = "radio" name="Q103" value="vs"/> Very Satisified<br/>
+                        <input type = "radio" name="Q103" value="ss"/> Somewhat Satisified<br/>
+                        <input type = "radio" name="Q103" value="n"/> Neutral<br/>
+                        <input type = "radio" name="Q103" value="sd"/> Somewhat Dissatisfied<br/>
+                        <input type = "radio" name="Q103" value="vd"/> Very Dissatifiied<br/><br/>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top">
+                        104.
+                    </td>
+                    <td>
+                        Do you consider the venue of the conference siutable?<br/><br/>
+                        <input type = "radio" name="Q104" value="vs"/> Very Satisified<br/>
+                        <input type = "radio" name="Q104" value="ss"/> Somewhat Satisified<br/>
+                        <input type = "radio" name="Q104" value="n"/> Neutral<br/>
+                        <input type = "radio" name="Q104" value="sd"/> Somewhat Dissatisfied<br/>
+                        <input type = "radio" name="Q104" value="vd"/> Very Dissatifiied<br/><br/>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top">
+                        105.
+                    </td>
+                    <td>
+                        How would you find the beverages and food provided in the conference?<br/><br/>
+                        <input type = "radio" name="Q105" value="vs"/> Very Satisified<br/>
+                        <input type = "radio" name="Q105" value="ss"/> Somewhat Satisified<br/>
+                        <input type = "radio" name="Q105" value="n"/> Neutral<br/>
+                        <input type = "radio" name="Q105" value="sd"/> Somewhat Dissatisfied<br/>
+                        <input type = "radio" name="Q105" value="vd"/> Very Dissatifiied<br/><br/>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top">
+                        106.
+                    </td>
+                    <td>
+                        Would you consider to join this conference again next year?<br/><br/>
+                        <input type = "radio" name="Q106" value="vs"/> Very Satisified<br/>
+                        <input type = "radio" name="Q106" value="ss"/> Somewhat Satisified<br/>
+                        <input type = "radio" name="Q106" value="n"/> Neutral<br/>
+                        <input type = "radio" name="Q106" value="sd"/> Somewhat Dissatisfied<br/>
+                        <input type = "radio" name="Q106" value="vd"/> Very Dissatifiied<br/><br/>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2">
+                        <b>Open Questions:</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top">
+                        201.
+                    </td>
+                    <td>
+                        Which keynote presentation you like most?<br/>
+                        <input type="text" name="Q201" size="28"/><br/><br/>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top">
+                        202.
+                    </td>
+                    <td>
+                        Which parallel session paper you like most?<br/>
+                        <input type="text" name="Q202" size="28"/><br/><br/>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top">
+                        203.
+                    </td>
+                    <td>
+                        Please suggest what contents/topics that you like to contribute to this conference in future.<br/>
+                        <textarea name="Q203" rows="4" cols="25"></textarea><br/><br/>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="top">
+                        204.
+                    </td>
+                    <td>
+                        Please suggest how to improve the conference in future.<br/>
+                        <textarea name="Q204" rows="4" cols="25"></textarea><br/><br/>
+                    </td>
+                </tr>
+            </table>
+            <input type="submit" value="Submit"/>
+			<input type="reset" value="Clear" />
+        </form>
+        <script>
+        // $.ajax({
+        //     url: 'server.php',
+        //     data: {
+        //         action: 'get_survey_questions'
+        //     },
+        //     type: 'post',
+        //     success: function(data) {
+        //         if (data) {
+        //             var json = JSON.parse(data);
+        //             var tr;
+        //             for (var i = 0; i < json.length; i++) {
+        //                 tr = $('<tr/>');
+        //                 tr.append('<td>' + json[i]['title'] + '</td>');
+        //                 tr.append('<td>' + json[i]['speakerLastname'] +' '+json[i]['speakerFirstname'] + '</td>');
+        //                 tr.append('<td>' + json[i]['begtime']+ ' to ' + json[i]['endtime'] + '</td>');
+        //                 tr.append('<td>' + json[i]['abstract']+ '</td>');
+        //                 $('table').append(tr);
+        //             }
+        //         }
+        //     }
+        // })
+        </script>
+    </body>
+</html>

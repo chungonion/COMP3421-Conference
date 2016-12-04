@@ -1,0 +1,83 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="sty.css" />
+    <script src="jquery.min.js"></script>
+
+</head>
+
+<body>
+    <h2>Search Result</h2>
+    <!-- <h3>Conference Programme</h3> -->
+    <script>
+        $.ajax({
+            url: 'server.php',
+            data: {
+                action: 'search',
+                search_type: 'presentation',
+                query: window.localStorage.getItem("query_text")
+            },
+            type: 'post',
+            success: function(data) {
+                if (!data) {
+                    $('#conference').hide();
+                    $('#no_conference_result').html("No Result available.");
+                } else {
+                    var json = JSON.parse(data);
+                    var tr;
+                    for (var i = 0; i < json.length; i++) {
+                        tr = $('<tr/>');
+                        tr.append('<td>' + json[i]['title'] + '</td>');
+                        tr.append('<td>' + json[i]['speakerLastname'] + ' ' + json[i]['speakerFirstname'] + '</td>');
+                        tr.append('<td>' + json[i]['begtime'] + ' to ' + json[i]['endtime'] + '</td>');
+                        tr.append('<td>' + json[i]['abstract'] + '</td>');
+                        $('#conference').append(tr);
+                    }
+                    if (json.length==0){
+                        $('#conference').hide();
+                        $('#no_conference_result').html("No Result available in this category");
+                    }
+                }
+
+            }
+        })
+    </script>
+    <table border="1" id="conference">
+        <tr>
+            <td>Title</td>
+            <td>Speaker</td>
+            <td>Presentation Time</td>
+            <td>Contents</td>
+        </tr>
+    </table>
+    <div id="no_conference_result"></div>
+
+    <!-- <h3>Speaker</h3>
+    <script>
+        $.ajax({
+            url: 'server.php',
+            data: {
+                action: 'get_events_information'
+            },
+            type: 'post',
+            success: function(data) {
+                if (data) {
+                    var json = JSON.parse(data);
+                    var tr;
+                    for (var i = 0; i < json.length; i++) {
+                        tr = $('<tr/>');
+                        tr.append("<td colspan='2'>" + json[i]["eventID"] + "</td>");
+                        tr.append("<td>" + json[i]["title"] + "</td>");
+                        tr.append("<td>" + json[i]["date"] + "</td>");
+                        tr.append("<td>" + json[i]["begTime"] + "</td>");
+                        tr.append("<td>" + json[i]["endTime"] + "</td>");
+                        $('#speaker').append(tr);
+                    }
+                }
+            }
+        })
+    </script>
+    <table id="speaker"></table> -->
+</body>
+
+</html>

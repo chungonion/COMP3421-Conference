@@ -1,0 +1,56 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="sty.css" />
+    <script src="jquery.min.js"></script>
+    <script>
+        function run() {
+            $.ajax({
+                url: 'server.php',
+                data: {
+                    action: 'get_speakers_list_information'
+                },
+                type: 'post',
+                success: function(data) {
+                    if (data) {
+                        var json = JSON.parse(data);
+                        var tr;
+                        for (var i = 0; i < json.length; i++) {
+                            tr = $('<tr/>');
+                            tr.append("<td>" + json[i]["abstractID"]+ "</td>");
+                            tr.append("<td>" + json[i]["authorID"] + "</td>");
+                            tr.append("<td>" + json[i]["lastname"]+ "</td>");
+                            tr.append("<td>" + json[i]["firstname"]+ "</td>");
+                            tr.append("<td>" + json[i]["type(PolyU)"]+ "</td>");
+                            // tr.append("<td>" + json[i]["photoJpgFilename"]+ "</td>");
+                            // tr.append("<td><img src='" + json[i]["photoJpgFilename"]+ "'/></td>");
+                            // tr.append("<td>" + json[i]["begtime"]+ "</td>");
+                            // tr.append("<td>" + json[i]["abstract"]+ "</td>");
+                            // tr.append("<td>" + json[i]["biography"]+ "</td>");
+                            $('table').append(tr);
+                        }
+                    }
+                }
+            })
+        }
+        run();
+    </script>
+</head>
+
+<body>
+    <h2>Conference Programme</h2>
+    <table id="table" border="1">
+      <tr>
+          <td>Abstract ID</td>
+          <td>Speaker ID</td>
+          <td>Speaker lastname</td>
+          <td>Speaker firstname</td>
+          <td>type</td>
+          <!-- <td>Photo jpg filename</td>
+          <td>Beginning time</td>
+          <td>Abstract</td>
+          <td>Biography</td> -->
+
+    </table>
+</body>
+
+</html>

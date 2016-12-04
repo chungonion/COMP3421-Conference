@@ -1,0 +1,48 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="sty.css" />
+    <script src="jquery.min.js"></script>
+    <script>
+        function run() {
+            $.ajax({
+                url: 'server.php',
+                data: {
+                    action: 'get_events_information'
+                },
+                type: 'post',
+                success: function(data) {
+                    if (data) {
+                        var json = JSON.parse(data);
+                        var tr;
+                        for (var i = 0; i < json.length; i++) {
+                            tr = $('<tr/>');
+                            tr.append("<td colspan='2'>" + json[i]["eventID"] + "</td>");
+                            tr.append("<td>" + json[i]["title"]+ "</td>");
+                            tr.append("<td>" + json[i]["date"]+ "</td>");
+                            tr.append("<td>" + json[i]["begTime"]+ "</td>");
+                            tr.append("<td>" + json[i]["endTime"]+ "</td>");
+                            $('table').append(tr);
+                        }
+                    }
+                }
+            })
+        }
+        run();
+    </script>
+</head>
+
+<body>
+    <h2>Conference Programme</h2>
+    <table id="table" border="1">
+        <tr>
+            <td colspan="2" id="ID0">Event ID</td>
+            <td id="Title0">Title</td>
+            <td id="date0">Date</td>
+            <td id="begTime0">Beginning Time</td>
+            <td id="endTime0">Ending Time</td>
+        </tr>
+    </table>
+</body>
+
+</html>
