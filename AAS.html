@@ -7,7 +7,7 @@
             $.ajax({
                 url: 'server.php',
                 data: {
-                    action: 'get_speakers_list_information'
+                    action: 'get_presentation_information'
                 },
                 type: 'post',
                 success: function(data) {
@@ -16,8 +16,8 @@
                         var tr;
                         for (var i = 0; i < json.length; i++) {
                             tr = $('<tr/>');
-                            tr.append("<td>" + json[i]["speaker lastname"]+ "</td>");
-                            tr.append("<td>" + json[i]["speaker firstname"]+ "</td>");
+                            tr.append("<td>" + json[i]["speakerLastname"]+ "</td>");
+                            tr.append("<td>" + json[i]["speakerFirstname"]+ "</td>");
                             $('#table').append(tr);
 
                         }
